@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniPredict | Predict. Match. Achieve.</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-ug">
+    <div class="background-overlay"></div>
+    
+    <nav class="glass-nav">
+        <div class="container flex-between">
+            <h1 class="logo">UniPredict</h1>
+            <div class="nav-links">
+                <a href="#" onclick="location.reload()">Home</a>
+                <a href="#checker">Predictor</a>
+                <a href="#">Universities</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="hero" class="hero-section">
+            <h1 class="cinematic-headline">Know Your University Match <br><span>Before You Apply.</span></h1>
+            <p>Ghana's most accurate admissions AI for WASSCE students.</p>
+        </section>
+
+        <section id="checker" class="glass-card main-form">
+            <div class="progress-dots">
+                <span id="dot0" class="dot active"></span>
+                <span id="dot1" class="dot"></span>
+                <span id="dot2" class="dot"></span>
+            </div>
+
+            <div id="step0" class="form-step active">
+                <h3>Select Institution</h3>
+                <select id="uniSelect" onchange="updateTheme()">
+                    <option value="UG">University of Ghana (Legon)</option>
+                    <option value="KNUST">KNUST</option>
+                    <option value="UCC">University of Cape Coast</option>
+                    <option value="UPSA">UPSA</option>
+                </select>
+                <button class="btn-primary" onclick="nextStep(0)">Next: Enter Grades</button>
+            </div>
+
+            <div id="step1" class="form-step">
+                <h3>WASSCE Grades</h3>
+                <div class="grade-grid">
+                    <div class="input-col">
+                        <h4>Core</h4>
+                        <select id="eng"><option value="1">English: A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option></select>
+                        <select id="math"><option value="1">Math: A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option></select>
+                        <select id="sci"><option value="1">Science: A1</option><option value="2">B2</option></select>
+                        <select id="soc"><option value="1">Social: A1</option><option value="2">B2</option></select>
+                    </div>
+                    <div class="input-col">
+                        <h4>Electives</h4>
+                        <select id="el1"><option value="1">Elective 1: A1</option><option value="2">B2</option><option value="3">B3</option></select>
+                        <select id="el2"><option value="1">Elective 2: A1</option><option value="2">B2</option><option value="3">B3</option></select>
+                        <select id="el3"><option value="1">Elective 3: A1</option><option value="2">B2</option><option value="3">B3</option></select>
+                    </div>
+                </div>
+                <button class="btn-primary" onclick="runPrediction()">Predict My Chances</button>
+            </div>
+
+            <div id="step2" class="form-step">
+                <div id="results-loader" class="loader"></div>
+                <div id="results-content" class="display-none">
+                    <h2 id="result-summary">Checking...</h2>
+                    <div id="program-list"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="database.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
