@@ -1,0 +1,50 @@
+:root {
+    --teal: #1dbfb0;
+    --glass: rgba(255, 255, 255, 0.08);
+    --border: rgba(255, 255, 255, 0.15);
+}
+
+body {
+    margin: 0; font-family: 'Montserrat', sans-serif; color: white;
+    background-size: cover; background-position: center; background-attachment: fixed;
+    transition: 1s ease-in-out;
+}
+
+.bg-ug { background-image: url('https://images.unsplash.com/photo-1541339907198-e08759dfc3ef?q=80&w=2000'); }
+.bg-knust { background-image: url('https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2000'); }
+
+.background-overlay {
+    position: fixed; inset: 0;
+    background: linear-gradient(135deg, rgba(6, 13, 26, 0.94) 0%, rgba(6, 13, 26, 0.6) 100%);
+    z-index: -1;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+
+/* Glass Card */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 30px; padding: 40px; margin-top: 50px;
+}
+
+.form-step { display: none; }
+.form-step.active { display: block; animation: fadeIn 0.5s ease; }
+
+.grade-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 20px 0; }
+select {
+    width: 100%; background: rgba(255,255,255,0.1); border: 1px solid var(--border);
+    color: white; padding: 12px; border-radius: 10px; margin-bottom: 10px;
+}
+
+.btn-primary {
+    background: var(--teal); color: white; width: 100%; padding: 18px;
+    border: none; border-radius: 12px; font-weight: 900; cursor: pointer;
+}
+
+/* Badges */
+.badge-qualify { background: #22d47a; padding: 5px 12px; border-radius: 20px; font-size: 12px; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
